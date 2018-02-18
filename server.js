@@ -36,7 +36,7 @@ app.use(morgan('combined'));
      var date=data.date;
      var content=data.content;
      var htmltemplate=
-    <html>
+    `<html>
     <head>
         <title>{$title}</title>
             <meta name="viewport" content="width-device-width,initial-scale=1">
@@ -61,7 +61,7 @@ app.use(morgan('combined'));
         </div>
     </div>
     </body>
-</html>
+</html>`
 ;
  }
 
