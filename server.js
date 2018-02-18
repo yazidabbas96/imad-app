@@ -4,7 +4,8 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
- var articleone=
+var articles={
+ var articleone:
  {
      title:'Article-one abbas',
      heading:'Article-one',
@@ -28,7 +29,55 @@ app.use(morgan('combined'));
                 this is content.this is content.this is content.this is content.
             </p>`
      
- };
+ },
+ var articletwo={
+     title:'Article-two abbas',
+     heading:'Article-two',
+     date:'6 sep 2016',
+     content:`<p>
+                this is content.this is content.this is content.
+                this is content.
+                this is content.
+                this is content.this is content.this is content.this is content.
+            </p>
+            <p>
+                this is content.this is content.this is content.
+                this is content.
+                this is content.
+                this is content.this is content.this is content.this is content.
+            </p>
+            <p>
+                this is content.this is content.this is content.
+                this is content.
+                this is content.
+                this is content.this is content.this is content.this is content.
+            </p>`
+ },
+ var articlethree={
+     title:'Article-three abbas',
+     heading:'Article-three',
+     date:'8 sep 2016',
+     content:`<p>
+                this is content.this is content.this is content.
+                this is content.
+                this is content.
+                this is content.this is content.this is content.this is content.
+            </p>
+            <p>
+                this is content.this is content.this is content.
+                this is content.
+                this is content.
+                this is content.this is content.this is content.this is content.
+            </p>
+            <p>
+                this is content.this is content.this is content.
+                this is content.
+                this is content.
+                this is content.this is content.this is content.this is content.
+            </p>`
+ }
+ 
+};
  function createtemplate(data)
  {
      var title=data.title;
@@ -75,15 +124,11 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one', function (req, res) {
-  res.send(createtemplate(articleone));
+app.get('/:articleName', function (req, res) {
+var articleName=req.params.articleName;
+res.send(createtemplate(articles[articleName]));
 });
-app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
+
 
 
 app.get('/ui/style.css', function (req, res) {
