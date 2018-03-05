@@ -49,7 +49,7 @@ app.post('/create-user', function (req, res) {
         }
         else
         {
-            res.send(JSON.stringify(result.rows));
+            res.send("user has been successfully created");
         }});
  
 });
